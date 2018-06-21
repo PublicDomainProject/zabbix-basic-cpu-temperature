@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.4</version>
+    <version>3.0</version>
     <date>2017-10-24T11:37:07Z</date>
     <groups>
         <group>
@@ -29,13 +29,18 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>basicCPUTemp.avg</key>
-                    <delay>10s</delay>
-                    <history>90d</history>
-                    <trends>365d</trends>
+                    <delay>10</delay>
+                    <history>90</history>
+                    <trends>365</trends>
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
+                    <data_type>0</data_type>
                     <units>°C</units>
+                    <multiplier>0</multiplier>
+                    <delta>0</delta>
+                    <formula>1</formula>
+                    <delay_flex></delay_flex>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -60,9 +65,6 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
-                    <jmx_endpoint/>
-                    <master_item/>
                 </item>
                 <item>
                     <name>CPU Temperature Max</name>
@@ -70,13 +72,18 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>basicCPUTemp.max</key>
-                    <delay>10s</delay>
-                    <history>90d</history>
-                    <trends>365d</trends>
+                    <delay>10</delay>
+                    <history>90</history>
+                    <trends>365</trends>
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
+                    <data_type>0</data_type>
                     <units>°C</units>
+                    <multiplier>0</multiplier>
+                    <delta>0</delta>
+                    <formula>1</formula>
+                    <delay_flex></delay_flex>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -101,9 +108,6 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
-                    <jmx_endpoint/>
-                    <master_item/>
                 </item>
                 <item>
                     <name>CPU Temperature Min</name>
@@ -111,13 +115,18 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>basicCPUTemp.min</key>
-                    <delay>10s</delay>
-                    <history>90d</history>
-                    <trends>365d</trends>
+                    <delay>10</delay>
+                    <history>90</history>
+                    <trends>365</trends>
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
+                    <data_type>0</data_type>
                     <units>°C</units>
+                    <multiplier>0</multiplier>
+                    <delta>0</delta>
+                    <formula>1</formula>
+                    <delay_flex></delay_flex>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -142,13 +151,9 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
-                    <preprocessing/>
-                    <jmx_endpoint/>
-                    <master_item/>
                 </item>
             </items>
             <discovery_rules/>
-            <httptests/>
             <macros/>
             <templates/>
             <screens/>
@@ -157,35 +162,23 @@
     <triggers>
         <trigger>
             <expression>{Template basicCPUTemp:basicCPUTemp.max.last()}&gt;90.0</expression>
-            <recovery_mode>1</recovery_mode>
-            <recovery_expression>{Template basicCPUTemp:basicCPUTemp.max.avg(60s)}&lt;75</recovery_expression>
             <name>Temperature high</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
-            <manual_close>0</manual_close>
             <dependencies/>
-            <tags/>
         </trigger>
         <trigger>
             <expression>{Template basicCPUTemp:basicCPUTemp.max.last()}&gt;95</expression>
-            <recovery_mode>2</recovery_mode>
-            <recovery_expression/>
             <name>Temperature too high</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
-            <manual_close>1</manual_close>
             <dependencies/>
-            <tags/>
         </trigger>
     </triggers>
     <graphs>
